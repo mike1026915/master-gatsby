@@ -6,5 +6,5 @@ export function wrapPageElement({element, props}) {
         <Layout {...props}>
             {element}
         </Layout>
-    )
+    );
 }
