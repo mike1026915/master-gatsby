@@ -1,4 +1,4 @@
-import path from 'path';
+import path, { resolve } from 'path';
 
 import fetch from 'isomorphic-fetch';
 
@@ -35,7 +35,7 @@ async function turnToppingsIntoPage({actions}, data) {
     })
 }
 
-async function fetchBeetsAndTrunIntoNodes({actions, createNodeId, createContentDigest}) {
+async function fetchBeersAndTrunIntoNodes({actions, createNodeId, createContentDigest}) {
     const res = await fetch('https://sampleapis.com/beers/api/ale');
     const beers = await res.json();
     beers.forEach((beer) => {
@@ -54,13 +54,59 @@ async function fetchBeetsAndTrunIntoNodes({actions, createNodeId, createContentD
             ...nodeMeta,
         })
     })
+}
+
+async function turnSlicemasterIntoPages({graphql, actions}) {
+    const { data } = await graphql(`
+        query {
+            slicemaster: allSanityPerson {
+                totalCount
+                nodes {
+                    name
+                    id
+                    slug {
+                        current
+                    }
+                }
+            }
+        }
+    `);
+
+    data.slicemaster.nodes.forEach((slicemaster) => {
+        actions.createPage({
+            component: resolve('./src/templates/Slicemaster.js'),
+            path: `/slicemaster/${slicemaster.slug.current}`,
+            context: {
+                name: slicemaster.person,
+                slug: slicemaster.slug.current,
+            }
+        })
+    })
+
+    const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
+    const pageCount = Math.ceil(data.slicemaster.totalCount/pageSize);
+    console.log({
+        pageSize,
+        pageCount
+    })
+    Array.from({length: pageCount}).forEach((_, i) => {
+        actions.createPage({
+            path: `/slicemasters/${i+1}`,
+            component:path.resolve('./src/pages/slicemasters.js'),
+            context: {
+                skip: i * pageSize,
+                currentPage: i + 1,
+                pageSize,
+            }
+        })
+    });
 
 }
 
 // sourceNodes will execute before createPages, because it is fetching the data
 export async function sourceNodes(params) {
     // fetch a list of beets and source them into our gatsby API
-    await Promise.all([fetchBeetsAndTrunIntoNodes(params)]);
+    await Promise.all([fetchBeersAndTrunIntoNodes(params)]);
 
 }
 
@@ -86,7 +132,8 @@ export async function createPages(params) {
     // create page dynamically
     await Promise.all([
         trunPizzaIntoPage(params, data),
-        turnToppingsIntoPage(params, data)
+        turnToppingsIntoPage(params, data),
+        turnSlicemasterIntoPages(params),
     ]);
 
     // 1. pizzas

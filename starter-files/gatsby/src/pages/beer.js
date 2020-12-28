@@ -57,3 +57,19 @@ export default function BeerPage({data}) {
     );
 }
 
+export const query = graphql`
+  query {
+    beers: allBear {
+      nodes {
+        id
+        name
+        price
+        image
+        rating {
+          average
+          reviews
+        }
+      }
+    }
+  }
+`;
