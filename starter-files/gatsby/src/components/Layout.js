@@ -31,7 +31,7 @@ const ContentStyles = styled.div`
 
 export default function Layout(props) {
     return (
-        <div>
+        <>
             <GlobalStyles />
             <Typography />
 
@@ -42,6 +42,6 @@ export default function Layout(props) {
                     <Footer />
                 </ContentStyles>
             </SideBorderStyles>
-        </div>
+        </>
     );
 }

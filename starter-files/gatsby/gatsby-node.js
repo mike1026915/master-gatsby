@@ -34,7 +34,7 @@ async function turnToppingsIntoPage({actions}, data) {
         })
     })
 }
-
+/*
 async function fetchBeersAndTrunIntoNodes({actions, createNodeId, createContentDigest}) {
     const res = await fetch('https://sampleapis.com/beers/api/ale');
     const beers = await res.json();
@@ -55,7 +55,7 @@ async function fetchBeersAndTrunIntoNodes({actions, createNodeId, createContentD
         })
     })
 }
-
+*/
 async function turnSlicemasterIntoPages({graphql, actions}) {
     const { data } = await graphql(`
         query {
@@ -106,7 +106,7 @@ async function turnSlicemasterIntoPages({graphql, actions}) {
 // sourceNodes will execute before createPages, because it is fetching the data
 export async function sourceNodes(params) {
     // fetch a list of beets and source them into our gatsby API
-    await Promise.all([fetchBeersAndTrunIntoNodes(params)]);
+    //await Promise.all([fetchBeersAndTrunIntoNodes(params)]);
 
 }
 

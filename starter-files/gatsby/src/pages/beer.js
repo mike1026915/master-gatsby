@@ -26,6 +26,7 @@ const SingeBeerStyles = styled.div`
 export default function BeerPage({data}) {
     return (
         <>
+            <SEO title={`Beers! We have ${data.beers.nodes.length}` } />
             <h2 className="center">
                 we have {data.beers.nodes.length} Beers Avaliiable. Dine in Only! Dine in Only!!
             </h2>
@@ -56,7 +57,7 @@ export default function BeerPage({data}) {
         </>
     );
 }
-
+/*
 export const query = graphql`
   query {
     beers: allBear {
@@ -73,3 +74,4 @@ export const query = graphql`
     }
   }
 `;
+*/

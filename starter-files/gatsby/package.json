@@ -57,6 +57,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wesbos/slicks-slices"
-  }
+    "url": "git+https://github.com/wesbos/slicks-slices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wesbos/slicks-slices/issues"
+  },
+  "homepage": "https://github.com/wesbos/slicks-slices#readme",
+  "main": "gatsby-browser.js",
+  "keywords": [],
+  "author": ""
 }

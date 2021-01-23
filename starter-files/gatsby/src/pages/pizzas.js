@@ -3,12 +3,16 @@ import { graphql } from 'gatsby';
 
 import PizzaList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingsFilter';
+import SEO from '../components/SEO';
 
 export default function PizzasPage({data}) {
     const pizzas = data.pizzas.nodes;
 
     return (
         <>
+            <SEO
+              title="All Pizzas"
+            />
             <ToppingsFilter />
             <PizzaList
                 pizzas={pizzas}

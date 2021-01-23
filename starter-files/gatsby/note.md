@@ -47,3 +47,7 @@ The file gatsby-ssr.js lets you alter the content of static HTML files as they a
 The APIs wrapPageElement and wrapRootElement exist in both the SSR and browser APIs. If you use one of them, consider if you should implement it in both gatsby-ssr.js and gatsby-browser.js so that pages generated through SSR with Node.js are the same after being hydrated with browser JavaScript.
 
 hotspot is always visible
+
+用example.com來測試email
+
+ethereal temp email
