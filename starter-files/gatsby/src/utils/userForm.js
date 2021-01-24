@@ -5,7 +5,6 @@ export default function useForm(defaults) {
 
     function updateValues(e) {
         let value = e.target.value;
-        console.log(e)
 
         if (e.target.type === 'number') {
             value = parseInt(value, 10);

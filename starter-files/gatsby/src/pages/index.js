@@ -5,8 +5,6 @@ import { HomePageGrid } from '../styles/Grids';
 import userLastestData from '../utils/useLatestData';
 
 function CurrentSlicing({ slicemasters }) {
-    console.log(slicemasters)
-
     return (
         <div>
             <h2 className="center">
@@ -21,8 +19,6 @@ function CurrentSlicing({ slicemasters }) {
 }
 
 function HotSlices({hotSlices}) {
-    console.log(hotSlices)
-
     return (
         <div>
             <h2 className="center">

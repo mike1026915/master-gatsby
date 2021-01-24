@@ -7,6 +7,7 @@ const ToppingStyles = styled.div`
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 4rem;
+    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
     a {
         display: grid;
         grid-template-columns: auto auto;

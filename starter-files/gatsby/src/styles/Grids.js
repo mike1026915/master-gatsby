@@ -24,10 +24,12 @@ export const ItemStyles = styled.div`
         font-size: 0;
     }
     p {
-        transform: rotate(-2deg) translateY(-150%);
+        transform: rotate(-2deg) translateY(-10px);
         position: absolute;
         width: 100%;
         left: 0;
+        font-size: 2rem;
+        font-size: clamp(12px, 5w, 20px);
     }
     .mark {
         display: inline
@@ -54,5 +56,9 @@ export const ItemStyles = styled.div`
         );
         background-size: 500px;
         animation: shine 1s infinite linear;
+    }
+
+    @media(max-width: 800px) {
+
     }
 `;

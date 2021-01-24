@@ -46,11 +46,9 @@ export default function userLastestData() {
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res.data)
-                setHotSlices(res.data.StoreSettings.hotSlices);
-                setSlicemaster(res.data.StoreSettings.Slicemaster);
+            setHotSlices(res.data.StoreSettings.hotSlices);
+            setSlicemaster(res.data.StoreSettings.Slicemaster);
         }).catch((err) => {
-            console.log('gg')
             console.log({err})
         })
     }, [])

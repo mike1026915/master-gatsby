@@ -36,8 +36,6 @@ export default function userPizzas({pizzas, values}) {
             email: values.email,
             sugar: values.sugar,
         }
-        console.log(body)
-
             // send order
         const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/placeOrder`, {
             method: 'POST',

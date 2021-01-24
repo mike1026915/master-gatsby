@@ -10,7 +10,7 @@ export default function SlicemasterPage({data}) {
         <>
             <SEO
                 title={person.name}
-                image={person.iage.asset.src}
+                image={person.image.asset.src}
             />
             <div className="center">
                 <Img fluid={person.image.asset.fluid} />
